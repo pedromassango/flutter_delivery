@@ -109,7 +109,7 @@ class _ZoomScaffoldState extends State<ZoomScaffold> with TickerProviderStateMix
 
     final slideAmount = 275.0 * slidePercent;
     final contentScale = 1.0 - (0.2 * scalePercent);
-    final cornerRadius = 10.0 * menuController.percentOpen;
+    final cornerRadius = 16.0 * menuController.percentOpen;
 
     return new Transform(
       transform: new Matrix4
