@@ -4,6 +4,7 @@ A new Flutter project.
 
 ## Preview
 
+<img src="/screenshots/left_drawer.png" width="250" height="500"> <img src="/screenshots/cover.png" width="250" height="500">
 
 
 ## Getting Started
