@@ -1,5 +1,6 @@
 import 'package:delivery/circular_image.dart';
 import 'package:delivery/zoom_scaffold.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -17,6 +18,14 @@ class MenuScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void changeBrightness() {
+      DynamicTheme.of(context).setBrightness(Theme.of(context).brightness == Brightness.dark? Brightness.light: Brightness.dark);
+    }
+    void changeColor() {
+      DynamicTheme.of(context).setThemeData(new ThemeData(
+          primaryColor: Theme.of(context).primaryColor == Colors.red? Colors.yellow: Colors.blue
+      ));
+    }
     return GestureDetector(
       onPanUpdate: (details) {
         //on swiping left
@@ -30,7 +39,7 @@ class MenuScreen extends StatelessWidget {
             left: 32,
             bottom: 8,
             right: MediaQuery.of(context).size.width / 2.9),
-        color: Color(0xff454dff),
+        // color: Color(0xff000000),
         child: Column(
           children: <Widget>[
             Row(
@@ -44,7 +53,7 @@ class MenuScreen extends StatelessWidget {
                 Text(
                   'Tatiana',
                   style: TextStyle(
-                    color: Colors.white,
+                    // color: Colors.white,
                     fontSize: 20,
                   ),
                 )
@@ -56,45 +65,54 @@ class MenuScreen extends StatelessWidget {
                 return ListTile(
                   leading: Icon(
                     item.icon,
-                    color: Colors.white,
+                    // color: Colors.white,
                     size: 20,
                   ),
                   title: Text(
                     item.title,
                     style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      // color: Colors.white
+                    ),
                   ),
                 );
               }).toList(),
             ),
             Spacer(),
             ListTile(
-              onTap: () {},
+              onTap: () {changeColor();
+
+              },
               leading: Icon(
                 Icons.settings,
-                color: Colors.white,
+                // color: Colors.white,
                 size: 20,
               ),
               title: Text('Settings',
-                  style: TextStyle(fontSize: 14, color: Colors.white)),
+                  style: TextStyle(fontSize: 14,
+                    // color: Colors.white
+                  )),
             ),
             ListTile(
-              onTap: () {},
+              onTap: (){changeBrightness();},
               leading: Icon(
-                Icons.headset_mic,
-                color: Colors.white,
+                Icons.wb_sunny,
+                // color: Colors.white,
                 size: 20,
               ),
-              title: Text('Support',
-                  style: TextStyle(fontSize: 14, color: Colors.white)),
+              title: Text('Change Theme',
+                  style: TextStyle(fontSize: 14,
+                    // color: Colors.white
+                  )),
             ),
           ],
         ),
       ),
     );
+
   }
+
 }
 
 class MenuItem {
