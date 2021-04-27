@@ -1,6 +1,6 @@
 # Delivery
 
-A new Flutter project.
+Um Aplicativo de Delivey em Flutter
 
 ## Preview
 
