@@ -24,14 +24,14 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
   createContentDisplay() {
     return zoomAndSlideContent(new Container(
       child: new Scaffold(
-        backgroundColor: Colors.transparent,
+        // backgroundColor: Colors.transparent,
         appBar: new AppBar(
-            backgroundColor: Colors.grey[200],
-            elevation: 0.0,
+          // backgroundColor: Colors.grey[200],
+            elevation: 2.0,
             leading: new IconButton(
                 icon: Icon(
                   Icons.menu,
-                  color: Colors.black,
+                  // color: Colors.black,
                 ),
                 onPressed: () {
                   Provider.of<MenuController>(context, listen: true).toggle();
@@ -41,29 +41,35 @@ class _ZoomScaffoldState extends State<ZoomScaffold>
                 onPressed: () {},
                 icon: Icon(
                   Icons.access_time,
-                  color: Colors.grey,
+                  // color: Colors.grey,
                 ),
               )
             ]),
         body: widget.contentScreen.contentBuilder(context),
         bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          currentIndex: 0,
+          currentIndex: 1,
           items: [
             BottomNavigationBarItem(
                 title: Text(''),
                 icon: Icon(
                   Icons.home,
-                  color: Colors.grey,
+                  // color: Colors.grey,
                 )),
             BottomNavigationBarItem(
                 title: Text(''),
-                icon: Icon(Icons.shopping_basket, color: Colors.grey)),
+                icon: Icon(Icons.shopping_basket,
+                  //  color: Colors.red
+                )),
             BottomNavigationBarItem(
                 title: Text(''),
-                icon: Icon(Icons.shopping_cart, color: Colors.grey)),
+                icon: Icon(Icons.shopping_cart,
+                  // color: Colors.grey
+                )),
             BottomNavigationBarItem(
-                title: Text(''), icon: Icon(Icons.person, color: Colors.grey)),
+                title: Text(''), icon: Icon(Icons.person,
+              // color: Colors.grey
+            )),
           ],
         ),
       ),

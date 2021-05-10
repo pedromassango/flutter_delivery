@@ -1,22 +1,32 @@
-import 'package:delivery/circular_image.dart';
+// import 'package:delivery/circular_image.dart';
 import 'package:delivery/menu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:delivery/zoom_scaffold.dart';
 import 'package:provider/provider.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
+
 
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      title: 'Zoom Menu',
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: new MyHomePage(),
+    return DynamicTheme(
+        defaultBrightness: Brightness.dark,
+        data: (brightness) => new ThemeData(
+          primarySwatch: Colors.teal,
+          brightness: brightness,
+        ),
+        themedWidgetBuilder: (context, theme) {
+          return new MaterialApp(
+            title: 'Flutter Demo',
+            theme: theme,
+            home: MyHomePage(),
+          );
+        }
     );
   }
+
 }
 
 class MyHomePage extends StatefulWidget {
@@ -50,11 +60,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         menuScreen: MenuScreen(),
         contentScreen: Layout(
             contentBuilder: (cc) => Container(
-                  color: Colors.grey[200],
-                  child: Container(
-                    color: Colors.grey[200],
-                  ),
-                )),
+              color: Colors.grey[200],
+              child: Container(
+                color: Colors.grey[200],
+              ),
+            )),
       ),
     );
   }
